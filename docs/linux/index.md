@@ -16,7 +16,6 @@ _________888P__________________________________________________
 - [Shell](shell.md)
 - [Storage](storage.md)
 - [Network](network.md)
-- [Databases](databases.md)
 - [Tools](tools.md)
 
 ## References

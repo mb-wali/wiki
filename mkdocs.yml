@@ -8,6 +8,8 @@ edit_uri: ""
 
 theme:
   name: material
+  logo: img/logo.png
+  language: en
   highlightjs: true
   hljs_languages:
     - zsh
@@ -18,5 +20,29 @@ theme:
     accent: deep purple
 
 nav:
-  - Home: index.md
-  - About: about.md
+  - Home: 'index.md'
+  - Code:
+    - Shell: 'code/shell.md'
+    - Python: 'code/python.md'
+  - Linux:
+    - Shell: 'linux/shell.md'
+    - Network: 'linux/network.md'
+    - Storage: 'linux/storage.md'
+    - Tools: 'linux/tools.md'
+  - Databases:
+    - SQL: 'databases/sql.md'
+    - NoSQL: 'databases/nosql.md'
+  - Cloud:
+    - AWS: 'cloud/aws.md'
+    - Azure: 'cloud/azure.md'
+    - Google: 'cloud/google.md'
+  - Containers:
+    - Docker: 'container/docker.md'
+    - Kubernetes: 'container/kubernetes.md'
+  - Security: 'security/index.md'
+  - DevOps:
+    - Jenkins: 'devops/jenkins.md'
+    - 'Github Actions': 'devops/gh-actions.md'
+    - 'Azure DevOps': 'devops/azure-ops.md'
+  - Bookmarks: 'bookmarks.md'
+  - About: 'about.md'
