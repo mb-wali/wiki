@@ -15,6 +15,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.GH_TOKEN}}        
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
@@ -30,5 +32,3 @@ jobs:
 
       - name: Deploy 🚀
         run: python3 -m mkdocs gh-deploy
-        with:
-          token: ${{secrets.GH_TOKEN}}      
