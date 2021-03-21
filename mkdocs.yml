@@ -7,12 +7,16 @@ repo_url: https://github.com/cosckoya/wiki
 edit_uri: ""
 
 theme:
-    name: material
-    highlightjs: true
-    hljs_languages:
-        - zsh
-        - yaml
+  name: material
+  highlightjs: true
+  hljs_languages:
+    - zsh
+    - yaml
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: deep purple
 
 nav:
-    - Home: index.md
-    - About: about.md
+  - Home: index.md
+  - About: about.md
