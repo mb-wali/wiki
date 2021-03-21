@@ -1,4 +1,14 @@
 site_name: Wiki
-#pages:
-#  - Home: 'README.md'
-theme: material
+site_url: https://cosckoya.github.io/wiki
+site_description: Cosckoya's Tech Wiki
+site_author: 'cosckoya'
+
+repo_url: https://github.com/cosckoya/wiki
+edit_uri: ""
+
+theme:
+    name: material
+    highlightjs: true
+    hljs_languages:
+        - zsh
+        - yaml
