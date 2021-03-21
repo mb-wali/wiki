@@ -31,4 +31,4 @@ jobs:
       #  run: python3 -m mkdocs build --clean
 
       - name: Deploy 🚀
-        run: python3 -m mkdocs gh-deploy
+        run: python3 -m mkdocs gh-deploy --force
