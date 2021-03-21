@@ -44,5 +44,9 @@ nav:
     - Jenkins: 'devops/jenkins.md'
     - 'Github Actions': 'devops/gh-actions.md'
     - 'Azure DevOps': 'devops/azure-ops.md'
+  - Monitoring:
+    - Zabbix: 'monitoring/zabbix.md'
+    - Influxdb: 'monitoring/influxdb.md'
+    - Prometheus: 'monitoring/prometheus.md'
   - Bookmarks: 'bookmarks.md'
   - About: 'about.md'
