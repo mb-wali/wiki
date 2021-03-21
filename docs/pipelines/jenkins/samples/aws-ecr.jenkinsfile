@@ -1,0 +1,82 @@
+/*
+Maintainer: javier.coscolla@gmail.com
+*/
+
+def defineEnv() {
+  branchName="${env.BRANCH_NAME}"
+  if ( branchName == "master" ) {
+    return "pro"
+  }
+}
+
+pipeline {
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '3'))
+    ansiColor('gnome-terminal')
+    timestamps()
+    timeout(time: 15, unit: 'MINUTES')
+    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'Jenkins']])
+  }
+  agent any
+  environment {
+
+    PROJECT = 'jenkinsci'
+    COMMIT  = sh ( script: 'git rev-parse --short=7 HEAD', returnStdout: true).trim()
+    AUTHOR  = sh ( script: 'git --no-pager show -s --format="%an" ${commit}', returnStdout: true).trim()
+    STAGE   = defineEnv()
+
+    // Docker
+    TAG      = "${env.COMMIT}"
+    IMAGE    = "${env.REGISTRY}:${env.TAG}"
+
+    // AWS
+    ACCOUNT  = "1234567890AB"
+    REGION   = "eu-west-1"
+    REGISTRY = "${env.ACCOUNT}.dkr.ecr.${env.REGION}.amazonaws.com/${env.PROJECT}"
+
+  }
+
+  stages {
+
+    stage('Print pipeline variables') { steps { sh 'env|sort' } }
+
+    stage('Test') {
+      steps {
+        script {
+          sh """
+            docker build --target build -t ${env.IMAGE} --file docker/Dockerfile .
+          """
+        }
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh """
+          docker build -t ${env.IMAGE} --file docker/Dockerfile .
+          docker tag ${env.IMAGE} ${env.REGISTRY}:latest
+        """
+      }
+    }
+
+
+    stage('Publish') {
+      when {
+        anyOf {
+          branch "master"
+        }
+      }
+      steps {
+        sh """
+          docker push ${env.IMAGE}
+          docker push ${env.REGISTRY}:latest
+        """
+      }
+    }
+  }
+
+  post {
+    always { cleanWs() }
+  }
+
+}

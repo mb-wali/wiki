@@ -12,3 +12,6 @@ theme:
     hljs_languages:
         - zsh
         - yaml
+
+nav:
+    - Home: index.md
