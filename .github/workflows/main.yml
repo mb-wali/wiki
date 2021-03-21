@@ -22,5 +22,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: x64
 
-      - name: install dependencies
-        run: python3 -m pip install mkdocs --user
+      - name: Install requirements
+        run: python3 -m pip install -U -r requirements.txt
+        
+      - name: Build
+        run: python3 -m mkdocs build
