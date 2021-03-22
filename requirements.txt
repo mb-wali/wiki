@@ -1,2 +1,5 @@
 mkdocs
 mkdocs-material
+mkdocs-section-index
+mkdocs-minify-plugin
+# git+https://github.com/fcannizzaro/mkdocs-sequence-js-plugin

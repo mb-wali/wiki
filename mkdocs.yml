@@ -1,4 +1,4 @@
-site_name: Cosckoya's Cheatsheets
+site_name: Cosckoya's Cheat Sheets
 site_url: https://cosckoya.github.io/wiki
 site_description: Cosckoya's Tech Wiki
 site_author: 'cosckoya'
@@ -23,31 +23,50 @@ theme:
 nav:
   - Home: 'index.md'
   - Code:
+    - 'code/index.md'
     - Shell: 'code/shell.md'
     - Python: 'code/python.md'
   - Linux:
+    - 'linux/index.md'
     - Shell: 'linux/shell.md'
     - Network: 'linux/network.md'
     - Storage: 'linux/storage.md'
     - Tools: 'linux/tools.md'
   - Databases:
+    - 'databases/index.md'
     - SQL: 'databases/sql.md'
     - NoSQL: 'databases/nosql.md'
   - Cloud:
+    - 'cloud/index.md'
     - AWS: 'cloud/aws.md'
     - Azure: 'cloud/azure.md'
     - Google: 'cloud/google.md'
   - Containers:
+    - 'container/index.md'
     - Docker: 'container/docker.md'
     - Kubernetes: 'container/kubernetes.md'
-  - Security: 'security/index.md'
+  - Security:
+    - 'security/index.md'
+    - SSL: 'security/ssl.md'
+    - 'Web Pentesting': 'security/web.md'
   - DevOps:
+    - 'devops/index.md'
     - Jenkins: 'devops/jenkins.md'
     - 'Github Actions': 'devops/gh-actions.md'
     - 'Azure DevOps': 'devops/azure-ops.md'
   - Monitoring:
+    - 'monitoring/index.md'
     - Zabbix: 'monitoring/zabbix.md'
     - Influxdb: 'monitoring/influxdb.md'
     - Prometheus: 'monitoring/prometheus.md'
   - Bookmarks: 'bookmarks.md'
   - About: 'about.md'
+
+plugins:
+  - section-index
+#  - minify:
+#      minify_html: true
+#      minify_js: true
+#  - sequence-js:
+#      theme: simple|hand
+#      popup: true
